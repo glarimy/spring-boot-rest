@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  mongo:
+    image: mongo:3.2.4
+    ports:
+    - 27017:27017
+    command: --smallfiles
+        
+  glarimy-cisco-library:
+    image: glarimy/glarimy-cisco-library:latest
+    ports:
+    - 2310:2310
+    links:
+    - mongo
+    
