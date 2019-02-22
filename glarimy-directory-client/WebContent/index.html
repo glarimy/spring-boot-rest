@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Directory</title>
+<script>
+	function findEmployee() {
+		let xhr = new XMLHttpRequest();
+		xhr.open("get", "http://localhost:8090/directory/employee/"
+				+ document.getElementById('eid').value, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				console.log(xhr.responseText);
+			}
+		}
+		xhr.send();
+	}
+</script>
+</head>
+<body>
+	<h1>Directory</h1>
+	<hr />
+	Employee ID
+	<input id='eid' />
+	<button onClick='findEmployee()'>Find</button>
+</body>
+</html>
